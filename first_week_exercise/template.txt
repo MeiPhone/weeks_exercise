@@ -1,0 +1,2 @@
+Dear ${name},
+  请您于 ${time} 在 ${room} 外等候面试。
