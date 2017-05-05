@@ -49,24 +49,24 @@ def square_tree(tree):
             square_tree(x)
 
 # Q3: 
-def height(tree,depth,max_depth):
+def height(tree,depth):
 #           *return the height of a tree.* （计算t的高度）
 # 整棵树的高度即整棵树的深度
+	index = depth
 	# 记录上一层深度+1则为本层深度
-	depth +=1
+	index = index + 1
 	# 初始化本层为大深度
-	max_depth = depth
+	max_depth = index
 	# 空树，高度为1且只有一个节点或0节点。
 	if tree == [] and max_depth == 1:
 		return -1
 	elif len(tree) == 1 and max_depth == 1:
 		return 0
-	n = 0
 	for x in tree:
 		# 遍历每一个子节点，如果是list则表示为下一层节点，继续往下查深度。
 		if isinstance(x,list):
-			# 下一层节点，传入本层深度、当前已知最大深度，返回本分支查到的最大深度
-			n = height(x,depth,max_depth)
+			# 下一层节点，传入本层深度，返回本分支查到的最大深度
+			n = height(x,index)
 			# 对比分支最大深度和已知最大深度，选大的作为最大深度。
 			max_depth = max(n,max_depth)
 	# 返回本层深度（叶子）或本层以下分支中最大深度。
@@ -98,7 +98,7 @@ if __name__ == '__main__':
 
 	t2 = tree('English')
 
-	number_tree = [10, [2, [5], [6]], [3], [4, [1], [8]]]
+	number_tree = [10, [2, [5], [6]], [3], [4,[1],[8]]]
 
 	nt = tree(10, [
 		 tree(2, [tree(5), tree(6)]), 
@@ -123,12 +123,12 @@ if __name__ == '__main__':
 	print(nt)
 
 	print('问题3:找出树的高度')
-	deep = height(nt,0,0)
-	print(deep)
-	null_tree = height(null_tree,0,0)
-	print(null_tree)
-	node = height(node,0,0)
-	print(node)
+	deep_num = height(nt,0)
+	print(deep_num)
+	null_tree_num = height(null_tree,0)
+	print(null_tree_num)
+	node_num = height(node,0)
+	print(node_num)
 
 	print('问题4:找出树中最大值')
 	deep = tree_max(nt,0)
