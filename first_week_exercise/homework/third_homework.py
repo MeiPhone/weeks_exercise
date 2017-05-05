@@ -1,4 +1,3 @@
-# 
 # Constructor
 def tree(label,branches=[]):
 	# print('return:',[label] ,'    branches:', list(branches))
@@ -52,15 +51,15 @@ def height(tree,depth):
 #           *return the height of a tree.* （计算t的高度）
 # 整棵树的高度即整棵树的深度
 	index = depth
+	# 空树，高度为1且只有一个节点或0节点。
+	if tree == [] and index == 0:
+		return -1
+	elif len(tree) == 1 and index == 0:
+		return index
 	# 记录上一层深度+1则为本层深度
 	index = index + 1
 	# 初始化本层为大深度
 	max_depth = index
-	# 空树，高度为1且只有一个节点或0节点。
-	if tree == [] and max_depth == 1:
-		return -1
-	elif len(tree) == 1 and max_depth == 1:
-		return 0
 	for x in tree:
 		# 遍历每一个子节点，如果是list则表示为下一层节点，继续往下查深度。
 		if isinstance(x,list):
