@@ -1,5 +1,4 @@
-import types
-
+# 
 # Constructor
 def tree(label,branches=[]):
 	# print('return:',[label] ,'    branches:', list(branches))
